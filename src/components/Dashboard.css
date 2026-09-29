@@ -1,0 +1,1552 @@
+/* ============================================
+   CareerGuide Dashboard – Complete Styles
+   ============================================ */
+
+/* --- CSS Variables --- */
+:root {
+  --dash-primary: #3B82F6;
+  --dash-primary-light: #60A5FA;
+  --dash-primary-dark: #2563EB;
+  --dash-secondary: #8B5CF6;
+  --dash-secondary-light: #A78BFA;
+  --dash-bg: hsl(210, 36%, 96%);
+  --dash-card: #FFFFFF;
+  --dash-text: #1E293B;
+  --dash-text-secondary: #64748B;
+  --dash-text-muted: #94A3B8;
+  --dash-border: #E2E8F0;
+  --dash-border-light: #F1F5F9;
+  --dash-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  --dash-shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --dash-radius: 14px;
+  --dash-radius-sm: 10px;
+  --dash-radius-lg: 18px;
+  --sidebar-width: 250px;
+  --right-panel-width: 300px;
+}
+
+/* --- Reset for Dashboard --- */
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--dash-bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--dash-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dashboard-wrapper * {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.dash-sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 16px 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  border-right: 1px solid var(--dash-border-light);
+}
+
+.dash-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  margin-bottom: 32px;
+}
+
+.dash-sidebar-logo .logo-icon {
+  width: 34px;
+  height: 34px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.dash-sidebar-logo span {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--dash-text);
+  letter-spacing: -0.3px;
+}
+
+.dash-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: var(--dash-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dash-text-secondary);
+  text-decoration: none;
+  position: relative;
+}
+
+.dash-nav-item:hover {
+  background: var(--dash-border-light);
+  color: var(--dash-text);
+}
+
+.dash-nav-item.active {
+  background: var(--dash-primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.dash-nav-item.active svg {
+  color: white;
+}
+
+.dash-nav-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.dash-nav-item .nav-arrow {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+}
+
+/* Sidebar Profile Card */
+.dash-sidebar-profile {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--dash-border);
+}
+
+.dash-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--dash-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dash-profile-card:hover {
+  background: var(--dash-border-light);
+}
+
+.dash-profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dash-primary), var(--dash-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.dash-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dash-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-profile-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dash-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dash-profile-plan {
+  font-size: 11px;
+  color: var(--dash-text-muted);
+  font-weight: 500;
+}
+
+.dash-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-top: 4px;
+  border-radius: var(--dash-radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--dash-text-muted);
+  transition: all 0.2s;
+  border: none;
+  background: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+.dash-logout-btn:hover {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.dash-logout-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+.dash-main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  margin-right: var(--right-panel-width);
+  padding: 28px 32px;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+.dash-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.dash-header-left h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.dash-header-left p {
+  font-size: 14px;
+  color: var(--dash-text-muted);
+  margin: 4px 0 0;
+}
+
+.dash-header-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 40px;
+}
+
+.dash-stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: var(--dash-card);
+  border-radius: var(--dash-radius);
+  box-shadow: var(--dash-shadow);
+  border: 1px solid var(--dash-border-light);
+}
+
+.dash-stat-chip .stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-stat-chip .stat-icon.blue {
+  background: #EFF6FF;
+  color: var(--dash-primary);
+}
+
+.dash-stat-chip .stat-icon.green {
+  background: #F0FDF4;
+  color: #22C55E;
+}
+
+.dash-stat-chip .stat-icon.purple {
+  background: #F5F3FF;
+  color: var(--dash-secondary);
+}
+
+.dash-stat-chip .stat-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dash-stat-chip .stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dash-text);
+}
+
+.dash-stat-chip .stat-label {
+  font-size: 11px;
+  color: var(--dash-text-muted);
+  font-weight: 500;
+}
+
+.dash-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background: var(--dash-card);
+  border-radius: var(--dash-radius);
+  border: 1px solid var(--dash-border);
+  min-width: 180px;
+  transition: border-color 0.2s;
+}
+
+.dash-search:focus-within {
+  border-color: var(--dash-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.dash-search svg {
+  width: 16px;
+  height: 16px;
+  color: var(--dash-text-muted);
+}
+
+.dash-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  color: var(--dash-text);
+  font-family: inherit;
+  width: 100%;
+}
+
+.dash-search input::placeholder {
+  color: var(--dash-text-muted);
+}
+
+.dash-notification-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--dash-radius-sm);
+  background: var(--dash-card);
+  border: 1px solid var(--dash-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  color: var(--dash-text-secondary);
+}
+
+.dash-notification-btn:hover {
+  background: var(--dash-border-light);
+}
+
+.dash-notification-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dash-notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 8px;
+  height: 8px;
+  background: var(--dash-primary);
+  border-radius: 50%;
+  border: 2px solid var(--dash-card);
+}
+
+/* --- Section Headers --- */
+.dash-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dash-section-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0;
+}
+
+.dash-see-all {
+  font-size: 13px;
+  color: var(--dash-primary);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.dash-see-all:hover {
+  opacity: 0.7;
+}
+
+.dash-see-all svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* --- Card Base --- */
+.dash-card {
+  background: var(--dash-card);
+  border-radius: var(--dash-radius);
+  padding: 20px;
+  box-shadow: var(--dash-shadow);
+  border: 1px solid var(--dash-border-light);
+}
+
+/* --- Buttons --- */
+.dash-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--dash-radius-sm);
+  background: var(--dash-primary);
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  width: fit-content;
+}
+
+.dash-card-btn.full-width {
+  width: 100%;
+}
+
+.dash-card-btn:hover {
+  background: var(--dash-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.dash-card-btn.outline {
+  background: transparent;
+  border: 2px solid var(--dash-primary);
+  color: var(--dash-primary);
+}
+
+.dash-card-btn.outline:hover {
+  background: var(--dash-primary);
+  color: white;
+}
+
+.dash-card-btn.small {
+  padding: 8px 16px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+/* ============================================
+   MY ACTIVITY SECTION
+   ============================================ */
+.dash-activity-section {
+  margin-bottom: 28px;
+}
+
+.dash-activity-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 16px;
+}
+
+/* Bar Chart */
+.dash-chart-container {
+  position: relative;
+  height: 200px;
+}
+
+.dash-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 170px;
+  padding: 0 8px;
+  position: relative;
+}
+
+.dash-chart::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--dash-border);
+}
+
+.dash-chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.dash-chart-bar-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 140px;
+}
+
+.dash-chart-bar {
+  width: 18px;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.dash-chart-bar.primary {
+  background: var(--dash-primary);
+}
+
+.dash-chart-bar.secondary {
+  background: var(--dash-secondary-light);
+  opacity: 0.6;
+}
+
+.dash-chart-bar:hover {
+  opacity: 0.85;
+  transform: scaleY(1.02);
+  transform-origin: bottom;
+}
+
+.dash-chart-label {
+  font-size: 11px;
+  color: var(--dash-text-muted);
+  font-weight: 500;
+}
+
+.dash-chart-label.active {
+  color: var(--dash-text);
+  font-weight: 700;
+}
+
+.dash-chart-y-axis {
+  position: absolute;
+  left: -4px;
+  top: 0;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-chart-y-axis span {
+  font-size: 10px;
+  color: var(--dash-text-muted);
+}
+
+/* Activity Items */
+.dash-activity-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dash-activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--dash-card);
+  border-radius: var(--dash-radius-sm);
+  border: 1px solid var(--dash-border-light);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.dash-activity-item:hover {
+  box-shadow: var(--dash-shadow-md);
+  border-color: var(--dash-border);
+}
+
+.dash-activity-time {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.dash-activity-time.blue {
+  background: #EFF6FF;
+  color: var(--dash-primary);
+}
+
+.dash-activity-time.purple {
+  background: #F5F3FF;
+  color: var(--dash-secondary);
+}
+
+.dash-activity-text {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dash-text);
+}
+
+.dash-activity-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dash-activity-icon.check {
+  background: #F0FDF4;
+  color: #22C55E;
+}
+
+.dash-activity-icon.edit {
+  background: #EFF6FF;
+  color: var(--dash-primary);
+}
+
+.dash-activity-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   COUNSELLORS SECTION
+   ============================================ */
+.dash-counsellors-section {
+  margin-bottom: 28px;
+}
+
+.dash-counsellors-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.dash-counsellor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dash-counsellor:hover {
+  transform: translateY(-2px);
+}
+
+.dash-counsellor-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #E0E7FF, #F5F3FF);
+  border: 3px solid var(--dash-card);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dash-counsellor-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dash-counsellor-avatar .avatar-initials {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dash-primary);
+}
+
+.dash-counsellor-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--dash-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+.dash-counsellor-badge svg {
+  width: 10px;
+  height: 10px;
+  color: white;
+}
+
+.dash-counsellor-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dash-text-secondary);
+  text-align: center;
+}
+
+.dash-add-counsellor {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px dashed var(--dash-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: var(--dash-text-muted);
+}
+
+.dash-add-counsellor:hover {
+  border-color: var(--dash-primary);
+  color: var(--dash-primary);
+  background: #EFF6FF;
+}
+
+.dash-add-counsellor svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ============================================
+   ASSESSMENTS SECTION
+   ============================================ */
+.dash-assessments-section {
+  margin-bottom: 28px;
+}
+
+.dash-assessments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.dash-assessment-card {
+  background: var(--dash-card);
+  border-radius: var(--dash-radius);
+  padding: 22px;
+  border: 1px solid var(--dash-border-light);
+  box-shadow: var(--dash-shadow);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-assessment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 0 0 0 100%;
+  opacity: 0.05;
+  background: var(--dash-secondary);
+  transition: opacity 0.3s;
+}
+
+.dash-assessment-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--dash-shadow-md);
+  border-color: var(--dash-border);
+}
+
+.dash-assessment-card:hover::before {
+  opacity: 0.1;
+}
+
+.dash-assessment-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.dash-assessment-icon.blue {
+  background: #EFF6FF;
+  color: var(--dash-primary);
+}
+
+.dash-assessment-icon.purple {
+  background: #F5F3FF;
+  color: var(--dash-secondary);
+}
+
+.dash-assessment-icon.green {
+  background: #F0FDF4;
+  color: #22C55E;
+}
+
+.dash-assessment-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dash-assessment-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 8px 0;
+}
+
+.dash-assessment-card p {
+  font-size: 12px;
+  color: var(--dash-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.dash-assessment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.dash-assessment-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--dash-border-light);
+  color: var(--dash-text-secondary);
+}
+
+/* ============================================
+   RIGHT PANEL
+   ============================================ */
+.dash-right-panel {
+  width: var(--right-panel-width);
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 28px 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.dash-right-panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* CTA Card */
+.dash-cta-card {
+  background: linear-gradient(135deg, var(--dash-primary), var(--dash-secondary));
+  border-radius: var(--dash-radius-lg);
+  padding: 26px 22px;
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-cta-card::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+.dash-cta-card::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.dash-cta-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+}
+
+.dash-cta-card p {
+  font-size: 12px;
+  opacity: 0.85;
+  margin: 0 0 18px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.dash-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: white;
+  color: var(--dash-primary);
+  border: none;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.dash-cta-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.dash-cta-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Progress Circle Card */
+.dash-progress-card {
+  margin-bottom: 20px;
+}
+
+.dash-progress-circle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dash-progress-circle {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dash-progress-circle svg {
+  transform: rotate(-90deg);
+  display: block;
+}
+
+.dash-progress-circle .bg-ring {
+  fill: none;
+  stroke: var(--dash-border);
+  stroke-width: 5;
+}
+
+.dash-progress-circle .progress-ring {
+  fill: none;
+  stroke: var(--dash-primary);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.dash-progress-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--dash-primary);
+}
+
+.dash-progress-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 4px 0;
+}
+
+.dash-progress-info p {
+  font-size: 11px;
+  color: var(--dash-text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Career Recommendations */
+.dash-recommendations {
+  margin-bottom: 20px;
+}
+
+.dash-recommendations h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 14px 0;
+}
+
+.dash-recommendation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dash-recommendation-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--dash-card);
+  border-radius: var(--dash-radius-sm);
+  border: 1px solid var(--dash-border-light);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dash-recommendation-item:hover {
+  box-shadow: var(--dash-shadow-md);
+  border-color: var(--dash-border);
+}
+
+.dash-recommendation-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #EFF6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dash-primary);
+}
+
+.dash-recommendation-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.dash-recommendation-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-recommendation-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dash-text);
+}
+
+.dash-recommendation-bar {
+  height: 4px;
+  background: var(--dash-border-light);
+  border-radius: 4px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.dash-recommendation-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--dash-primary);
+  transition: width 0.6s ease;
+}
+
+.dash-recommendation-match {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dash-primary);
+  white-space: nowrap;
+}
+
+.dash-recommendation-item .play-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--dash-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dash-text-secondary);
+  transition: all 0.2s;
+}
+
+.dash-recommendation-item:hover .play-icon {
+  background: var(--dash-primary);
+  color: white;
+}
+
+.dash-recommendation-item .play-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ============================================
+   PROGRESS TRACKER SECTION (Right Panel)
+   ============================================ */
+.dash-tracker-section {
+  margin-bottom: 20px;
+}
+
+.dash-tracker-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 14px 0;
+}
+
+.dash-skill-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dash-skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dash-skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-skill-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dash-text);
+}
+
+.dash-skill-pct {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dash-primary);
+}
+
+.dash-skill-bar {
+  height: 6px;
+  background: var(--dash-border-light);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dash-skill-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: var(--dash-primary);
+  transition: width 0.6s ease;
+}
+
+/* ============================================
+   COMMUNITY SECTION (Right Panel)
+   ============================================ */
+.dash-community-section {
+  margin-bottom: 20px;
+}
+
+.dash-community-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 12px 0;
+}
+
+.dash-community-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dash-community-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--dash-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 13px;
+  color: var(--dash-text);
+  font-weight: 500;
+}
+
+.dash-community-item:hover {
+  background: var(--dash-border-light);
+}
+
+.dash-community-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--dash-primary);
+  flex-shrink: 0;
+}
+
+.dash-community-item .arrow {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  color: var(--dash-text-muted);
+}
+
+/* ============================================
+   HELP SECTION (Right Panel)
+   ============================================ */
+.dash-help-section {
+  margin-bottom: 20px;
+}
+
+.dash-help-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 12px 0;
+}
+
+.dash-help-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dash-help-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--dash-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 13px;
+  color: var(--dash-text);
+  font-weight: 500;
+}
+
+.dash-help-item:hover {
+  background: var(--dash-border-light);
+}
+
+.dash-help-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--dash-secondary);
+  flex-shrink: 0;
+}
+
+.dash-help-item .arrow {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  color: var(--dash-text-muted);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+.dash-main::-webkit-scrollbar {
+  width: 5px;
+}
+.dash-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dash-main::-webkit-scrollbar-thumb {
+  background: var(--dash-border);
+  border-radius: 5px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes dashFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dashSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dashScaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.dash-animate-in {
+  animation: dashFadeIn 0.4s ease forwards;
+}
+
+.dash-animate-in-1 { animation-delay: 0.05s; opacity: 0; }
+.dash-animate-in-2 { animation-delay: 0.1s; opacity: 0; }
+.dash-animate-in-3 { animation-delay: 0.15s; opacity: 0; }
+.dash-animate-in-4 { animation-delay: 0.2s; opacity: 0; }
+.dash-animate-in-5 { animation-delay: 0.25s; opacity: 0; }
+.dash-animate-in-6 { animation-delay: 0.3s; opacity: 0; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1400px) {
+  :root {
+    --right-panel-width: 280px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dash-main {
+    margin-right: 0;
+  }
+  .dash-right-panel {
+    display: none;
+  }
+  .dash-header-stats {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .dash-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .dash-sidebar.open {
+    transform: translateX(0);
+  }
+  .dash-main {
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+  .dash-assessments-grid {
+    grid-template-columns: 1fr;
+  }
+  .dash-activity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================
+   CAREER TAB CONTENTS
+   ============================================ */
+.dash-career-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.dash-career-card {
+  background: var(--dash-card);
+  border-radius: var(--dash-radius);
+  padding: 24px;
+  border: 1px solid var(--dash-border-light);
+  box-shadow: var(--dash-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-career-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--dash-shadow-md);
+  border-color: var(--dash-primary-light);
+}
+
+.dash-career-card-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex: 1;
+}
+
+.dash-career-card-left .dash-recommendation-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.dash-career-card-left .dash-recommendation-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dash-career-card-info {
+  flex: 1;
+}
+
+.dash-career-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dash-text);
+  margin: 0 0 4px 0;
+}
+
+.dash-career-card-desc {
+  font-size: 13px;
+  color: var(--dash-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  max-width: 90%;
+}
+
+.dash-career-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dash-career-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dash-text-muted);
+}
+
+.dash-career-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-left: 16px;
+}
+
+.dash-career-card-right span {
+  font-size: 11px;
+  color: var(--dash-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1400px) {
+  .dash-career-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .dash-career-card {
+    padding: 16px;
+  }
+  .dash-career-card-left {
+    gap: 14px;
+  }
+  .dash-career-card-left .dash-recommendation-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .dash-career-card-meta {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+}
+/* ============================================
+   COUNSELLING TAB CONTENTS
+   ============================================ */
+.dash-counsellor-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dash-counsellor-detail-card {
+  padding: 24px;
+}
+
+.dash-counsellor-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 14px 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--dash-border-light);
+  border-bottom: 1px solid var(--dash-border-light);
+}
+
+.dash-counsellor-stats-row span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dash-text-secondary);
+}
+
+.dash-session-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+}
+
+.dash-session-item > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1400px) {
+  .dash-counsellor-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,21 +1,38 @@
 {
   "name": "counselx",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "description": "CounselX - AI-powered career counselling platform",
+  "main": "server.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "lucide-react": "^1.7.0",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.2.4",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pdfkit": "^0.17.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-just-parallax": "^3.1.16",
     "react-router-dom": "^7.13.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
@@ -27,6 +44,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
+    "nodemon": "^3.1.14",
     "vite": "^8.0.1"
   }
 }
